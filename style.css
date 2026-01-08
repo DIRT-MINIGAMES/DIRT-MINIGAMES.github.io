@@ -79,3 +79,6 @@ body {
     background: #1a100a;
     opacity: 0.7;
 }
+html {
+  scroll-behavior: smooth;
+}
