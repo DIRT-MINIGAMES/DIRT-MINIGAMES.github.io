@@ -1,11 +1,185 @@
-<h1>全国のこいし好きに向ける。こいしのためのこいしページ</h1>
-<title>こいしコミュニティ</title>
-<p>こいし好きの皆さん、ようこそ！このページは、こいしを愛する人たちのためのコミュニティスペースです。ここでは、こいしに関する情報やファンアート、イベント情報などを共有しています。ぜひ、こいしへの愛を語り合いましょう！</p>
-<button onclick="window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ')">こいしを愛でるボタン</button>
-<p>↓こいしが出現するボタン↓</p>
-<button onclick="window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ')">こいし出現ボタン</button>
-<p>こいしの魅力を語り合う掲示板もありますので、ぜひ参加してください！</p>
-<ul>
-  <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">こいしの動画</a></li>
-  <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">こいしのファンアート</a></li>
-  <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">こいしのイベント情報</a></li>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>こいしコミュニティ</title>
+    <style>
+        /* 全体のスタイル設定 */
+        body {
+            background-color: #f4f7f1; /* 薄くくすんだ黄緑がかった白 */
+            color: #4a5343; /* 深いくすんだ緑の文字色 */
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* コンテナ（中央寄せと幅の制限） */
+        .container {
+            max-width: 700px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: #e2ebd5; /* ベースとなる、くすんだ黄緑 */
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            border: 2px dashed #b8c9a6; /* 可愛いアクセントの破線 */
+        }
+
+        /* ヘッダー・見出し */
+        h1 {
+            font-size: 1.8rem;
+            color: #3b593a; /* サードアイのコードをイメージした深緑 */
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        h1::after {
+            content: '✿'; /* 可愛いワンポイント */
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #b8c9a6;
+            font-size: 1.2rem;
+        }
+
+        /* 本文テキスト */
+        p {
+            font-size: 1rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .notice {
+            font-size: 0.9rem;
+            color: #6b7764;
+            margin-top: 30px;
+            margin-bottom: 5px;
+        }
+
+        /* ボタンのエリア */
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+            margin: 25px 0;
+        }
+
+        /* ボタンの共通スタイル */
+        button {
+            background-color: #9bb388; /* 少し濃いくすんだ黄緑 */
+            color: #ffffff;
+            border: none;
+            padding: 12px 35px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        button:hover {
+            background-color: #839c6f; /* ホバー時に少し暗く */
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        /* リンク一覧のスタイル */
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 30px 0 10px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        li {
+            text-align: center;
+        }
+
+        /* リンクの装飾 */
+        a {
+            color: #4e6b3e;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            transition: color 0.2s ease;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        a:hover {
+            color: #2b3d22;
+            background-color: rgba(255, 255, 255, 0.5); /* マウスを乗せると白背景がうっすら出る */
+        }
+
+        /* 追加：画像表示用のスタイル */
+        .koishi-display {
+            display: none;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .koishi-display img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>全国のこいし好きに向ける。<br>こいしのためのこいしページ</h1>
+        
+        <p>こいし好きの皆さん、ようこそ！このページは、こいしを愛する人たちのためのコミュニティスペースです。ここでは、こいしに関する情報やファンアート、イベント情報などを共有しています。ぜひ、こいしへの愛を語りましょう！</p>
+        
+        <div class="button-group">
+            <button onclick="mederuKoishi()">こいしを愛でるボタン</button>
+            
+            <p class="notice">↓こいしが出現するボタン↓</p>
+            <button onclick="shutsugenKoishi()">こいし出現ボタン</button>
+        </div>
+
+        <!-- 追加：画像を表示するエリア -->
+        <div id="koishiArea" class="koishi-display">
+            <img id="koishiImg" src="" alt="こいし">
+        </div>
+
+        <p>こいしの魅力を語り合う掲示板もありますので、ぜひ参加してください！</p>
+        
+        <ul>
+            <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">こいしの動画</a></li>
+            <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">こいしのファンアート</a></li>
+            <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">こいしのイベント情報</a></li>
+        </ul>
+    </div>
+
+    <script>
+        // ボタンを押した時に表示したい実際の画像URLに書き換えてください
+        const imageMederu = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbAd7fuaP8vNmHx2GOkbAKRN-Y_pq2og3K3w&s"; // 愛でる用
+        const imageShutsugen = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbAd7fuaP8vNmHx2GOkbAKRN-Y_pq2og3K3w&s"; // 出現用
+
+        function mederuKoishi() {
+            const area = document.getElementById('koishiArea');
+            const img = document.getElementById('koishiImg');
+            img.src = imageMederu;
+            area.style.display = 'block';
+        }
+
+        function shutsugenKoishi() {
+            const area = document.getElementById('koishiArea');
+            const img = document.getElementById('koishiImg');
+            img.src = imageShutsugen;
+            area.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
